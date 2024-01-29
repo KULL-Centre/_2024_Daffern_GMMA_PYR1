@@ -87,7 +87,7 @@ wt_aba = "MPSELTPEERSELKNSIAEFHTYQLDPGSCSSLHAQRIHAPPELVWSIVRRFDKPQTYKPFIKSCSVEQN
 wt = wt_dia
 
 # Read list of expected substitutions
-lib_csv = read.csv("../expected_substitutions.csv")
+lib_csv = read.csv("expected_substitutions.csv")
 #   position wt     mut expected                                               note
 # 1       29  S     Q/T     stab Original list of stabilizing mutations, dark green
 # 2       15  N D/E/S/Q     stab Original list of stabilizing mutations, dark green

@@ -3,7 +3,7 @@ options(width=160)
 wt = "MPSELTPEERSELKNSIAEFHTYQLDPGSCSSLHAQRIHAPPELVWSIVRRFDKPQTYKPFIKSCSVEQNFEMRVGCTRDVIVISGLPASTSTERLDILDDERRVTGFSIIGGEHRLTNYKSVTTVHRFEKENRIWTVVLESYVVDMPEGNSEDDTRMFADTVVKLNLQKLATVAEAMARNSGDGSGSQVT"
 
 # Read list of expected substitutions
-lib_csv = read.csv("../expected_substitutions.csv")
+lib_csv = read.csv("expected_substitutions.csv")
 
 # make data frame of expected substitutions
 mut_split_list = strsplit(lib_csv$mut, "/")

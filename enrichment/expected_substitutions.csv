@@ -1,0 +1,74 @@
+﻿position,wt,mut,expected,note
+29,S,Q/T,stab,"Original list of stabilizing mutations, dark green"
+15,N,D/E/S/Q,stab,"Original list of stabilizing mutations, dark green"
+26,D,G/N/S/K,stab,"Original list of stabilizing mutations, dark green"
+104,R,H,stab,"Original list of stabilizing mutations, dark green"
+121,K,R/H,stab,"Original list of stabilizing mutations, dark green"
+54,K,N,stab,"Original list of stabilizing mutations, dark green"
+132,E,D,stab,"Original list of stabilizing mutations, dark green"
+133,N,G,stab,"Original list of stabilizing mutations, dark green"
+80,D,E,stab,"Original list of stabilizing mutations, dark green"
+43,E,D,stab,"Original list of stabilizing mutations, dark green"
+102,E,D,stab,"Original list of stabilizing mutations, dark green"
+69,Q,E/D,stab,"Original list of stabilizing mutations, light green"
+128,R,E,stab,"Original list of stabilizing mutations, light green"
+24,Q,E/H,stab,"Original list of stabilizing mutations, light green"
+16,S,A/F,stab,"Original list of stabilizing mutations, yellow"
+97,D,E,stab,"Original list of stabilizing mutations, yellow"
+70,N,G,stab,"Original list of stabilizing mutations, yellow"
+34,H,L,stab,"Original list of stabilizing mutations, yellow"
+11,S,E/A,stab,"Original list of stabilizing mutations, yellow"
+68,E,K,stab,"Original list of stabilizing mutations, yellow"
+4,E,G,stab,"Original list of stabilizing mutations, yellow"
+20,F,H/Y,stab,"Original list of stabilizing mutations, yellow"
+134,R,K,stab,"Original list of stabilizing mutations, yellow"
+39,H,N,stab,"Original list of stabilizing mutations, white"
+14,K,E/A,stab,"Original list of stabilizing mutations, white"
+18,A,K/T,stab,"Original list of stabilizing mutations, white"
+35,A,I,stab,"Original list of stabilizing mutations, white"
+31,S,Q,stab,Hand-picked stabilizing mutations
+47,S,D,stab,Hand-picked stabilizing mutations
+73,M,Q,stab,Hand-picked stabilizing mutations
+75,V,T/E,stab,Hand-picked stabilizing mutations
+98,I,M,stab,Hand-picked stabilizing mutations
+106,T,V/I,stab,Hand-picked stabilizing mutations
+111,I,M/E,stab,Hand-picked stabilizing mutations
+123,V,L/F,stab,Hand-picked stabilizing mutations
+147,M,H,stab,Hand-picked stabilizing mutations
+158,M,R,stab,Hand-picked stabilizing mutations
+171,L,F,stab,Hand-picked stabilizing mutations
+178,M,R,stab,Hand-picked stabilizing mutations
+179,A,V/T,stab,Hand-picked stabilizing mutations
+153,E,Q,stab,Buried charge (not in pocket)
+176,E,Q,stab,Buried charge (not in pocket)
+100,D,N,stab,Buried charge (not in pocket)
+146,D,N,stab,Buried charge (not in pocket)
+170,K,M,stab,Buried charge (not in pocket)
+17,I,V,stab,Stabilizing conserved mutations
+48,I,V,stab,Stabilizing conserved mutations
+82,I,N,stab,Stabilizing conserved mutations
+118,T,R,stab,Stabilizing conserved mutations
+131,K,R,stab,Stabilizing conserved mutations
+9,E,S,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+13,L,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+21,H,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+30,C,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+34,H,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+38,I,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+42,P,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+45,V,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+48,I,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+52,F,V,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+71,F,V,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+105,V,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+123,V,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+124,T,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+126,V,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+129,F,V,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+136,W,H,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+140,L,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+141,E,S,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+145,V,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+156,T,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+168,L,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
+171,L,A,destab,Destabilizing Mutations of Residues with <20% SASA (23)
