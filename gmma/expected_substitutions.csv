@@ -1,0 +1,80 @@
+4	E	G	Potential stabilizing	PROSS
+9	E	S	Predicted destabilizing	
+11	S	E/A	Potential stabilizing	PROSS
+13	L	A	Predicted destabilizing	
+14	K	E/A	Potential stabilizing	PROSS
+15	N	D/E/S/Q	Potential stabilizing	PROSS
+16	S	A/F	Potential stabilizing	PROSS
+17	I	V	Potential stabilizing	Highly conserved
+18	A	K/T	Potential stabilizing	PROSS
+20	F	H/Y	Potential stabilizing	PROSS
+21	H	A	Predicted destabilizing	
+24	Q	E/H	Potential stabilizing	PROSS
+26	D	G/N/S/K	Potential stabilizing	PROSS
+29	S	Q/T	Potential stabilizing	PROSS
+30	C	A	Predicted destabilizing	
+31	S	Q	Potential stabilizing	Increase hydrophobic packing
+34	H	L	Potential stabilizing	PROSS
+34	H	A	Predicted destabilizing	
+35	A	I	Potential stabilizing	PROSS
+38	I	A	Predicted destabilizing	
+39	H	N	Potential stabilizing	PROSS
+42	P	A	Predicted destabilizing	
+43	E	D	Potential stabilizing	PROSS
+45	V	A	Predicted destabilizing	
+47	S	D	Potential stabilizing	Increase external charge/polarity
+48	I	V	Potential stabilizing	Highly conserved
+48	I	A	Predicted destabilizing	
+52	F	V	Predicted destabilizing	
+54	K	N	Potential stabilizing	PROSS
+68	E	K	Potential stabilizing	PROSS
+69	Q	E/D	Potential stabilizing	PROSS
+70	N	G	Potential stabilizing	PROSS
+71	F	V	Predicted destabilizing	
+73	M	Q	Potential stabilizing	Increase external charge/polarity
+75	V	T/E	Potential stabilizing	Increase external charge/polarity
+80	D	E	Potential stabilizing	PROSS
+81	V	Y	DIAZI reversion	
+82	I	N	Potential stabilizing	Highly conserved
+87	L	M	DIAZI reversion	
+97	D	E	Potential stabilizing	PROSS
+98	I	M	Potential stabilizing	Increase external charge/polarity
+100	D	N	Potential stabilizing	Reduced buried charge
+102	E	D	Potential stabilizing	PROSS
+# 102	E	D	DIAZI reversion	
+104	R	H	Potential stabilizing	PROSS
+105	V	A	Predicted destabilizing	
+106	T	V/I	Potential stabilizing	Increase hydrophobic packing
+108	F	Y	DIAZI reversion	
+111	I	M/E	Potential stabilizing	Increase external charge/polarity
+118	T	R	Potential stabilizing	Highly conserved
+121	K	R/H	Potential stabilizing	PROSS
+123	V	L/F	Potential stabilizing	Increase hydrophobic packing
+123	V	A	Predicted destabilizing	
+124	T	A	Predicted destabilizing	
+126	V	A	Predicted destabilizing	
+128	R	E	Potential stabilizing	PROSS
+129	F	V	Predicted destabilizing	
+131	K	R	Potential stabilizing	Highly conserved
+132	E	D	Potential stabilizing	PROSS
+133	N	G	Potential stabilizing	PROSS
+134	R	K	Potential stabilizing	PROSS
+136	W	H	Predicted destabilizing	
+140	L	A	Predicted destabilizing	
+141	E	S	Predicted destabilizing	
+145	V	A	Predicted destabilizing	
+146	D	N	Potential stabilizing	Reduced buried charge
+147	M	H	Potential stabilizing	Increase external charge/polarity
+153	E	Q	Potential stabilizing	Reduced buried charge
+156	T	A	Predicted destabilizing	
+158	M	V	DIAZI reversion	
+158	M	R	Potential stabilizing	Increase external charge/polarity
+159	F	G	DIAZI reversion	
+160	A	V	DIAZI reversion	
+168	L	A	Predicted destabilizing	
+170	K	M	Potential stabilizing	Reduced buried charge
+171	L	F	Potential stabilizing	Increase hydrophobic packing
+171	L	A	Predicted destabilizing	
+176	E	Q	Potential stabilizing	Reduced buried charge
+178	M	R	Potential stabilizing	Increase external charge/polarity
+179	A	V/T	Potential stabilizing	Increase hydrophobic packing
