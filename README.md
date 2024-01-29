@@ -6,7 +6,7 @@ by Nicolas Daffern, Kristoffer E. Johansson, Zachary T. Baumer, Nicholas R. Robe
 
 Contents
 --------
-- **counts**: sequencing counts
+- **sequencing_counts**: Sequencing counts from screens
 - **enrichment**: Script for calculating enrichment scores of all data sets
 - **gmma**: Scripts for GMMA, subfolders contain a run.sh script
 
