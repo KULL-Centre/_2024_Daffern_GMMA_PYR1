@@ -7,12 +7,6 @@ expected_subst = unname(unlist( mapply(paste0, paste0(es_raw$V2,es_raw$V1), targ
 es = data.frame(s=expected_subst,
                 expected=unlist(rep(es_raw$V4, sapply(target_mut_list, length))),
                 source=unlist(rep(es_raw$V5, sapply(target_mut_list, length))))
-# es_raw = read.csv("../expected_substitutions.csv")
-# target_mut_list = lapply(es_raw$mut, function(s){ strsplit(s,"/")[[1]] })
-# expected_subst = unname(unlist( mapply(paste0, paste0(es_raw$wt,es_raw$position), target_mut_list) ))
-# es = data.frame(s=expected_subst,
-#                 expected=unlist(rep(es_raw$expected, sapply(target_mut_list, length))),
-#                 note=unlist(rep(es_raw$note, sapply(target_mut_list, length))))
 stopifnot(length(expected_subst) == length(unique(expected_subst)))
 
 es$wt = substr(es$s, 1, 1)
@@ -286,13 +280,6 @@ text(x[i], y[i]+.00, adc[i,"s"], cex=0.7, offset=0.7, pos=2)
 i = which(adc$s %in% c("E102D","T118R"))                                             # big points
 text(x[i], y[i]+.00, adc[i,"s"], cex=0.7, offset=1.0, pos=c(1,2))
 
-# i = which(adc$s %in% c("S11E","Q24H","D26N"))                   # small points
-# text(x[i], y[i]+.00, adc[i,"s"], cex=0.7, offset=0.2, pos=c(2,2,2))
-# i = which(adc$s %in% c("N15D","F20Y","D26G","D26S","S29Q","H34L","E43D","R104H","N133G","R134K","D146N"))  # medium points
-# text(x[i], y[i]+.00, adc[i,"s"], cex=0.7, offset=0.5, pos=c(2,1,3,1,2,2,2,2,4,1,2))
-# i = which(adc$s %in% c("E4G","E102D","T118R"))                                      # big points
-# text(x[i], y[i]+.00, adc[i,"s"], cex=0.7, offset=1.0, pos=c(2,1,2))
-
 i = which(adc$s %in% c("R104H","E43D","T118R","S29Q","R134K"))
 points(x[i], y[i], cex=size[i]**2, pch=16, col="orange")
 
@@ -415,9 +402,9 @@ print(sprintf("Positions with both expected stab. and destab. subst.: %s",paste0
 print(sprintf("Positions with both expected stab. and diazi reversions subst.: %s",paste0(intersect(es_pos_stab,es_pos_rev),collapse=",")))
 print(sprintf("Positions with both expected destab. and diazi reversions subst.: %s",paste0(intersect(es_pos_destab,es_pos_rev),collapse=",")))
 
-i_stab = which(adc$expect=="Potential stabilizing")
-i_destab = which(adc$expect=="Predicted destabilizing")
-
+# issue that D80E is in adc but not estimated in dia although stabilizing - put to dia_eff=stab?
+i_stab = which(adc$expect=="Potential stabilizing" & ! is.na(adc$aba_eff) & ! is.na(adc$dia_eff))
+i_destab = which(adc$expect=="Predicted destabilizing" & ! is.na(adc$aba_eff) & ! is.na(adc$dia_eff))
 
 # all points of combined analysis
 quartz(width=6, height=6)
@@ -445,11 +432,96 @@ legend("topleft", c("Potential stabilizing","Predicted destabilizing","Diazi = A
        pch=c(16,16,NA,NA), lty=c(NA,NA,1,2), col=c(stab_col,destab_col,"black","black"))
 quartz.save("gmma_combined1_full.png", type="png")
 
-# Pross substitutions
-pross_all = es[which(es$source=="PROSS"),"s"]
-print(sprintf("GMMA effect of all %d expected PROSS subst",length(pross_all)))
-print(table( adc[match(pross_all,adc$s),c("aba_eff","dia_eff")] ))
 
-print(sprintf("GMMA effect of all %d expected stablizing subst",length(i_stab)))
+# Pross substitutions
+print(sprintf("GMMA effect of %d confident and expected stablizing subst",length(i_stab)))
 print(table( adc[i_stab,c("aba_eff","dia_eff")] ))
+
+pross_subst = es[which(es$source=="PROSS"),"s"]
+# pross_subst_est = pross_subst[which(pross_subst %in% adc$s)]
+i_pross = which(adc$s %in% pross_subst  & (! is.na(adc$aba_eff)) & (! is.na(adc$dia_eff)))
+print(sprintf("GMMA effects of %d confident and expected out of %d (%.2f%%) PROSS substitutions. Missing: %s", length(i_pross), length(pross_subst),
+              length(i_pross)/length(pross_subst)*100, paste0(setdiff(pross_subst,adc[i_pross,"s"]),collapse=",")))
+print(table( adc[i_pross,c("aba_eff","dia_eff")] ))
+
+i_other_stab = which(adc$expect=="Potential stabilizing" & ! adc$s %in% pross_subst & ! is.na(adc$aba_eff) & ! is.na(adc$dia_eff))
+print(sprintf("GMMA effect of %d confident and expected stablizing non-PROSS subst",length(i_other_stab)))
+print(table( adc[i_other_stab,c("aba_eff","dia_eff")] ))
+
+n_est = sum((! is.na(adc$aba_ddG)) & (! is.na(adc$dia_ddG)))
+quartz(width=8, height=8)
+par(bg="white")
+plot(adc$aba_ddG, adc$dia_ddG, col=0, xlab="ABA GMMA effects", ylab="Diazi GMMA effects", main=sprintf("%d expected of %d",n_est,nrow(es)))
+
+# arrows(x0=adc[,"aba_ddG"], y0=adc[,"dia_ddG"]-adc[,"dia_err"], y1=adc[,"dia_ddG"]+adc[,"dia_err"], code=3, angle=90, length=.01)
+# arrows(x0=adc[,"aba_ddG"]-adc[,"aba_err"], x1=adc[,"aba_ddG"]+adc[,"aba_err"], y0=adc[,"dia_ddG"], code=3, angle=90, length=.01)
+
+points(adc[i_destab,"aba_ddG"], adc[i_destab,"dia_ddG"], pch=16, col=2)
+points(adc[i_pross,"aba_ddG"], adc[i_pross,"dia_ddG"], pch=16, col=3)
+points(adc[i_other_stab,"aba_ddG"], adc[i_other_stab,"dia_ddG"], pch=16, col=4)
+points(adc$aba_ddG, adc$dia_ddG, col=1, pch=1)
+legend("topleft", c("Destabilizing","PROSS","Other stabilizing"), pch=16, col=c(2,3,4))
+quartz.save("gmma_combined_pross.png", type="png")
+
+
+
+jpeg("gmma_combined_full.jpg", width=10, height=10, units="cm", res=300, quality=90, pointsize=8)
+par(bg="white", mar=c(5,4,2,2)+.1)
+plot(0,0,col=0, xlim=lim, ylim=lim, xlab="ABA GMMA effects", ylab="Diazi GMMA effects")
+abline(0,1)
+abline(coef(fit), lty=2)
+
+destab_col = 2
+stabp_col = 3
+stabo_col = 4
+points(adc[i_pross,"aba_ddG"], adc[i_pross,"dia_ddG"], pch=16, col=stabp_col)
+points(adc[i_other_stab,"aba_ddG"], adc[i_other_stab,"dia_ddG"], pch=16, col=stabo_col)
+points(adc[i_destab,"aba_ddG"], adc[i_destab,"dia_ddG"], pch=16, col=destab_col)
+points(adc$aba_ddG, adc$dia_ddG, pch=1, lwd=1, col="black")
+legend("topleft", c("Potential stabilizing, PROSS","Potential stabilizing, other","Predicted destabilizing","Diazi = ABA",sprintf("Diazi = %.2f + %.2f x ABA",coef(fit)[1], coef(fit)[2])),
+       pch=c(16,16,16,NA,NA), lty=c(NA,NA,NA,1,2), col=c(stabp_col,stabo_col,destab_col,"black","black"))
+dev.off()
+
+
+
+# plot fit
+# load variant data
+var_ac = read.csv2("aba_lib123/mutant.csv")
+var_d12 = read.csv2("dia_lib12_reref/mutant.csv")
+var_d3 = read.csv2("dia_lib3/mutant.csv")
+
+# find main tile library for each variant
+var_ac$lib = apply(var_ac[,c("reads1","reads2","reads3")], MARGIN=1, which.max)
+var_d12$lib = apply(var_d12[,c("reads1","reads2")], MARGIN=1, which.max)
+
+# plotting function
+plot_var = function(sig, res, col=1) {
+    sig = as.numeric(sig)
+    res = as.numeric(res)
+    pred = sig - res
+    plot(pred, sig, col=col, pch=20, cex=.25, xlim=c(-7,0),
+         xlab="Enrichment predicted", ylab="Enrichment screen")
+    abline(0,1, lty=2)
+    rp = cor(pred, sig, method="pearson", use="complete.obs")
+    print(sprintf("Pearson %.4f",rp))
+}
+
+
+jpeg("predictions.jpg", width=18, height=6, units="cm", res=300, pointsize=8)
+par(mfrow=c(1,3), bg="white", mar=c(5,4,2,2)+.1)
+plot_var(var_ac$signal, var_ac$residual, col=var_ac$lib)
+legend("topleft", c("ABA tile 1 variant","ABA tile 2 variant","ABA tile 3 variant"), pch=c(20,20,20), col=c(1,2,3))
+mtext("A", cex=1.4, font=2, line=0, at=-8)
+
+plot_var(var_d12$signal, var_d12$residual, col=var_d12$lib)
+legend("topleft", c("Diazi tile 1 variant","Diazi tile 2 variant"), pch=c(20,20), col=c(1,2))
+mtext("B", cex=1.4, font=2, line=0, at=-8)
+
+plot_var(var_d3$signal, var_d3$residual, col=3		)
+legend("topleft", c("Diazi tile 3 variant"), pch=20, col=3)
+mtext("C", cex=1.4, font=2, line=0, at=-8)
+dev.off()
+
+
+
 
