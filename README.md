@@ -2,7 +2,7 @@
 
 Scripts and output from "GMMA can stabilize proteins across different functional constraints" 
 
-by Nicolas Daffern, Kristoffer E. Johansson, Zachary T. Baumer, Nicholas R. Robertson, Janty Woojuh, Matthew A. Bedewitz, Zoë Davis, Ian Wheeldon, Sean Cutler, Kresten Lindorff-Larsen nad Timothy A. Whitehead.
+by Nicolas Daffern, Kristoffer E. Johansson, Zachary T. Baumer, Nicholas R. Robertson, Janty Woojuh, Matthew A. Bedewitz, Zoë Davis, Ian Wheeldon, Sean Cutler, Kresten Lindorff-Larsen and Timothy A. Whitehead.
 
 Contents
 --------
